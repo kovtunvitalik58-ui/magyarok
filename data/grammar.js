@@ -145,7 +145,7 @@ export const GRAMMAR = [
     {q:'tanul + ő', opts:['tanul','tanulik','tanulja'], a:0, why:'3-тя особа = гола основа.'},
     {q:'beszél + mi', opts:['beszélunk','beszélünk'], a:1, why:'Передній ряд → -ünk.'},
     {q:'tanul + ők', opts:['tanulnek','tanulnak'], a:1, why:'Задній ряд → -nak.'},
-    {q:'ért + te', opts:['értsz','értesz'], a:0, why:'Після одного приголосного → -sz. Értesz теж трапляється, але норма: értesz. Обидві форми чуються; вивчай értesz.'},
+    {q:'ért + te', opts:['értsz','értesz'], a:1, why:'Основа закінчується на -t після приголосного, тому потрібен голосний-з'єднувач: értesz. Форма «értsz» — помилка.'},
     {q:'Ön beszél magyarul? — Яка особа дієслова?', opts:['2-га','3-тя'], a:1, why:'Ön завжди вимагає 3-ї особи.'},
   ]
 },
@@ -394,7 +394,7 @@ beszél**tem**, beszél**tél**, beszél**t**, beszél**tünk**, beszél**tetek*
 **Порівняння з українською:** у нас минулий час змінюється за родом (був / була), але не за особою. В угорській — навпаки: за особою, але без роду. Один показник -t- на всі особи.
 
 **Для співбесіди — обов'язкові блоки:**
-- 1994-ben **születtem**. (Я народився 1994 року.)
+- 1985-ben **születtem**. (Я народився 1985 року.)
 - A dédapám Beregszászban **született**.
 - Kétszer **voltam** Magyarországon.
 - Egyetemre **jártam** Kijevben.`,
@@ -403,7 +403,7 @@ beszél**tem**, beszél**tél**, beszél**t**, beszél**tünk**, beszél**tetek*
     {q:'beszél + én, минулий', opts:['beszéltam','beszéltem'], a:1, why:'Передній ряд → beszéltem.'},
     {q:'van + én, минулий', opts:['vantam','voltam','vagytam'], a:1, why:'Нерегулярне: voltam.'},
     {q:'Мій прадід був угорцем: A dédapám magyar ___.', opts:['van','volt','—'], a:1, why:'У минулому часі зв\'язка НЕ опускається: volt.'},
-    {q:'Я народився 1994 року: 1994-ben ___.', opts:['születtem','születem','születtél'], a:0, why:'születtem.'},
+    {q:'Я народився 1985 року: 1985-ben ___.', opts:['születtem','születem','születtél'], a:0, why:'születtem.'},
     {q:'megy + én, минулий', opts:['mentem','megytem'], a:0, why:'Нерегулярне: mentem.'},
     {q:'Я двічі був в Угорщині: Kétszer ___ Magyarországon.', opts:['voltam','vagyok','volt'], a:0, why:'voltam.'},
     {q:'tanul + ők, минулий', opts:['tanultak','tanultek'], a:0, why:'Задній ряд → tanultak.'},

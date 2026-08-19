@@ -20,9 +20,9 @@ export const IQ_BLOCKS = {
 // Поля профілю. `def` — нейтральна заглушка, щоб застосунок був робочим
 // одразу після встановлення. Свої дані вписуються на екрані «Мій профіль».
 export const PROFILE_FIELDS = [
-  { k:'nev',      tok:'NÉV',        ua:'Ім’я і прізвище',            hint:'Угорським порядком: спершу прізвище. Kovtun Vitalij, а не Vitalij Kovtun.', def:'Kiss Péter' },
+  { k:'nev',      tok:'NÉV',        ua:'Ім’я і прізвище',            hint:'Угорським порядком: спершу прізвище. Sevcsenko Taras, а не Taras Sevcsenko.', def:'Kiss Péter' },
   { k:'eletkor',  tok:'ÉLETKOR',    ua:'Вік словами',                hint:'Угорською: harminckét, negyvenöt…', def:'harminc' },
-  { k:'szulEv',   tok:'SZÜL_ÉV',    ua:'Рік народження + суфікс',    hint:'Одразу з -ban/-ben: 1994-ben, 1988-ban.', def:'1990-ben' },
+  { k:'szulEv',   tok:'SZÜL_ÉV',    ua:'Рік народження + суфікс',    hint:'Одразу з -ban/-ben: 1985-ben, 1992-ben.', def:'1990-ben' },
   { k:'szulNap',  tok:'SZÜL_NAP',   ua:'День і місяць народження',   hint:'Угорською, у формі «коли»: május harmadikán.', def:'január elsején' },
   { k:'szulHely', tok:'SZÜL_HELY',  ua:'Місце народження + суфікс',  hint:'З відмінковим суфіксом: Kijevben, Beregszászban, Ungváron.', def:'Kijevben' },
   { k:'varos',    tok:'VÁROS',      ua:'Де живеш зараз + суфікс',    hint:'Kijevben, Lvivben, Ungváron.', def:'Kijevben' },

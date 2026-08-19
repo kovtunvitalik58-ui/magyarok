@@ -20,7 +20,7 @@ export const TOPICS = {
 
 export const VOCAB = [
 // ── Вітання та знайомство ────────────────────────────────────────────────
-{id:1,  hu:'Jó napot kívánok!', ua:'Доброго дня! (формально)', ex:'Jó napot kívánok! A nevem Kovtun Vitalij.', exUa:'Доброго дня! Мене звати Ковтун Віталій.', w:1, t:'koszones'},
+{id:1,  hu:'Jó napot kívánok!', ua:'Доброго дня! (формально)', ex:'Jó napot kívánok! A nevem Sevcsenko Taras.', exUa:'Доброго дня! Мене звати Шевченко Тарас.', w:1, t:'koszones'},
 {id:2,  hu:'Jó reggelt kívánok!', ua:'Доброго ранку!', ex:'Jó reggelt kívánok! Hogy van?', exUa:'Доброго ранку! Як справи?', w:1, t:'koszones'},
 {id:3,  hu:'Jó estét kívánok!', ua:'Доброго вечора!', ex:'Jó estét kívánok, konzul úr!', exUa:'Доброго вечора, пане консуле!', w:1, t:'koszones'},
 {id:4,  hu:'Jó éjszakát!', ua:'Доброї ночі!', ex:'Jó éjszakát, holnap találkozunk.', exUa:'Доброї ночі, завтра побачимось.', w:1, t:'koszones'},
@@ -40,10 +40,10 @@ export const VOCAB = [
 {id:18, hu:'igen', ua:'так', ex:'Igen, ukrán vagyok.', exUa:'Так, я українець.', w:1, t:'koszones'},
 {id:19, hu:'nem', ua:'ні / не', ex:'Nem, még nem voltam Magyarországon.', exUa:'Ні, я ще не був в Угорщині.', w:1, t:'koszones'},
 {id:20, hu:'jól', ua:'добре', ex:'Köszönöm, jól vagyok.', exUa:'Дякую, добре.', w:1, t:'koszones'},
-{id:21, hu:'A nevem…', ua:'Мене звати…', ex:'A nevem Kovtun Vitalij.', exUa:'Мене звати Ковтун Віталій.', w:1, t:'koszones'},
+{id:21, hu:'A nevem…', ua:'Мене звати…', ex:'A nevem Sevcsenko Taras.', exUa:'Мене звати Шевченко Тарас.', w:1, t:'koszones'},
 {id:22, hu:'Mi a neve?', ua:'Як Вас звати? (формально)', ex:'Jó napot! Mi a neve?', exUa:'Доброго дня! Як Вас звати?', w:1, t:'koszones'},
 {id:23, hu:'Hogy hívják?', ua:'Як Вас звати? (букв. «як Вас звуть»)', ex:'Hogy hívják az édesapját?', exUa:'Як звати Вашого батька?', w:1, t:'koszones'},
-{id:24, hu:'Örvendek.', ua:'Дуже приємно.', ex:'Kovtun Vitalij vagyok. Örvendek.', exUa:'Я Ковтун Віталій. Дуже приємно.', w:1, t:'koszones'},
+{id:24, hu:'Örvendek.', ua:'Дуже приємно.', ex:'Sevcsenko Taras vagyok. Örvendek.', exUa:'Я Шевченко Тарас. Дуже приємно.', w:1, t:'koszones'},
 {id:25, hu:'Nem értem.', ua:'Я не розумію.', ex:'Bocsánat, nem értem a kérdést.', exUa:'Вибачте, я не розумію питання.', w:1, t:'koszones'},
 {id:26, hu:'Értem.', ua:'Я розумію.', ex:'Igen, értem, köszönöm.', exUa:'Так, розумію, дякую.', w:1, t:'koszones'},
 {id:27, hu:'Lassabban, kérem.', ua:'Повільніше, будь ласка.', ex:'Lassabban, kérem, még tanulok magyarul.', exUa:'Повільніше, будь ласка, я ще вчу угорську.', w:1, t:'koszones'},
@@ -175,10 +175,10 @@ export const VOCAB = [
 
 // ── Біографія, час, дати ─────────────────────────────────────────────────
 {id:143,hu:'születik', ua:'народжуватись', ex:'Hol született?', exUa:'Де Ви народились?', w:9, t:'eletrajz'},
-{id:144,hu:'születtem', ua:'я народився / народилась', ex:'1994-ben születtem Kijevben.', exUa:'Я народився 1994 року в Києві.', w:9, t:'eletrajz'},
+{id:144,hu:'születtem', ua:'я народився / народилась', ex:'1985-ben születtem Kijevben.', exUa:'Я народився 1985 року в Києві.', w:9, t:'eletrajz'},
 {id:145,hu:'született', ua:'він/вона народився (народилась)', ex:'A nagyapám Beregszászban született.', exUa:'Мій дідусь народився в Береговому.', w:9, t:'eletrajz'},
 {id:146,hu:'születési hely', ua:'місце народження', ex:'Mi a születési helye?', exUa:'Яке Ваше місце народження?', w:9, t:'eletrajz'},
-{id:147,hu:'születési idő', ua:'дата народження', ex:'A születési ideje 1994. május 3.', exUa:'Дата народження — 3 травня 1994.', w:9, t:'eletrajz'},
+{id:147,hu:'születési idő', ua:'дата народження', ex:'A születési ideje 1985. május 3.', exUa:'Дата народження — 3 травня 1985.', w:9, t:'eletrajz'},
 {id:148,hu:'év', ua:'рік', ex:'Három éve tanulok magyarul.', exUa:'Я вчу угорську три роки.', w:9, t:'eletrajz'},
 {id:149,hu:'hónap', ua:'місяць', ex:'Hat hónapja kezdtem.', exUa:'Я почав шість місяців тому.', w:9, t:'eletrajz'},
 {id:150,hu:'nap', ua:'день', ex:'Minden nap tanulok.', exUa:'Я вчуся щодня.', w:9, t:'eletrajz'},
@@ -257,7 +257,7 @@ export const VOCAB = [
 {id:215,hu:'honosítás', ua:'натуралізація', ex:'Az egyszerűsített honosítást kérem.', exUa:'Я прошу спрощену натуралізацію.', w:11, t:'allampolgar'},
 {id:216,hu:'egyszerűsített honosítás', ua:'спрощена натуралізація', ex:'Egyszerűsített honosítás iránti kérelmet nyújtok be.', exUa:'Я подаю заяву на спрощену натуралізацію.', w:11, t:'allampolgar'},
 {id:217,hu:'kérelem', ua:'заява, клопотання', ex:'Beadtam a kérelmet.', exUa:'Я подав заяву.', w:11, t:'allampolgar'},
-{id:218,hu:'kérelmező', ua:'заявник', ex:'A kérelmező neve Kovtun Vitalij.', exUa:'Ім’я заявника — Ковтун Віталій.', w:11, t:'allampolgar'},
+{id:218,hu:'kérelmező', ua:'заявник', ex:'A kérelmező neve Sevcsenko Taras.', exUa:'Ім’я заявника — Шевченко Тарас.', w:11, t:'allampolgar'},
 {id:219,hu:'konzul', ua:'консул', ex:'A konzul kérdéseket tesz fel.', exUa:'Консул ставить питання.', w:11, t:'allampolgar'},
 {id:220,hu:'konzulátus', ua:'консульство', ex:'Az ungvári konzulátusra megyek.', exUa:'Я йду до ужгородського консульства.', w:11, t:'allampolgar'},
 {id:221,hu:'nagykövetség', ua:'посольство', ex:'A nagykövetség Kijevben van.', exUa:'Посольство в Києві.', w:11, t:'allampolgar'},
