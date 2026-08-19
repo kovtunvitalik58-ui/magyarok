@@ -57,20 +57,30 @@ export async function loadState() {
     if (raw) state = mergeDefaults(JSON.parse(raw));
   } catch (e) { console.warn('local load:', e); }
 
-  // 2) CloudStorage — синхронізація між пристроями (переможе, якщо новіше)
+  // 2) CloudStorage — синхронізація між пристроями (переможе, якщо новіше).
+  // ОБОВ'ЯЗКОВО з таймаутом: частина клієнтів Telegram (насамперед Desktop)
+  // не викликає колбек узагалі, і без запобіжника застосунок вічно висить
+  // на екрані завантаження. Локальні дані вже підвантажені, тож пропуск
+  // хмари — це втрата синхронізації, а не втрата прогресу.
   if (cloudOK()) {
     await new Promise((res) => {
+      let done = false;
+      const finish = () => { if (!done) { done = true; clearTimeout(timer); res(); } };
+      const timer = setTimeout(() => {
+        console.warn('CloudStorage не відповів за 2.5 с — працюємо на локальних даних');
+        finish();
+      }, 2500);
       try {
         tg.CloudStorage.getItem(KEY, (err, val) => {
           if (!err && val) {
             try {
               const cloud = mergeDefaults(JSON.parse(val));
               if ((cloud._ts || 0) > (state._ts || 0)) state = cloud;
-            } catch (e) { /* ignore */ }
+            } catch (e) { /* пошкоджений JSON у хмарі — лишаємо локальний стан */ }
           }
-          res();
+          finish();
         });
-      } catch (e) { res(); }
+      } catch (e) { finish(); }
     });
   }
 

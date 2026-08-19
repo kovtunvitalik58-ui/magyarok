@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="uk"><head><meta charset="utf-8">
+<title>Тест зависання</title><link rel="stylesheet" href="/css/style.css"></head><body>
+<script>
+// Імітуємо клієнт Telegram >= 6.9, у якого CloudStorage.getItem НІКОЛИ не викликає колбек
+window.Telegram = { WebApp: {
+  version:'7.10', ready(){}, expand(){},
+  isVersionAtLeast:(v)=>parseFloat(v)<=7.10,
+  CloudStorage:{ getItem(k,cb){ /* мовчання — саме тут раніше вішався застосунок */ },
+                 setItem(k,v,cb){ } },
+  HapticFeedback:{ impactOccurred(){}, notificationOccurred(){} },
+  BackButton:{ show(){}, hide(){}, onClick(){} },
+  themeParams:{}
+}};
+window.__t0 = Date.now();
+</script>
+<div id="app" class="app"><div class="boot">Завантаження…</div></div>
+<script type="module" src="/js/app.js"></script>
+</body></html>

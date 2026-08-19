@@ -52,8 +52,28 @@ function updateBackButton(screen) {
 
 async function boot() {
   initTelegram();
-  await loadState();
 
+  // Сторожовий таймер: що б не сталося із завантаженням стану, застосунок
+  // мусить намалюватися. Порожній екран «Завантаження…» — найгірший з можливих
+  // результатів, бо не дає користувачеві ні даних, ні пояснення.
+  let rendered = false;
+  const watchdog = setTimeout(() => {
+    if (!rendered) {
+      console.warn('Завантаження стану затяглося — рендеримо головну примусово');
+      rendered = true;
+      go('home');
+    }
+  }, 6000);
+
+  try {
+    await loadState();
+  } catch (e) {
+    console.warn('loadState:', e);   // стан лишиться дефолтним — це робочий сценарій
+  }
+  clearTimeout(watchdog);
+
+  // Обробники реєструємо завжди — навіть якщо сторож уже намалював головну.
+  // Інакше застосунок працював би, але не зберігав прогрес.
   if (tg?.BackButton?.onClick) {
     try { tg.BackButton.onClick(() => go('home')); } catch (e) { /* ignore */ }
   }
@@ -65,6 +85,9 @@ async function boot() {
     window.__hu = { state: getState(), save, go };
   }
 
+  // Перемальовуємо, навіть якщо сторож устиг раніше: стан міг доїхати з хмари
+  // вже після примусового рендеру, і головна показувала б застарілі цифри.
+  rendered = true;
   go('home');
 }
 

@@ -145,7 +145,7 @@ export const GRAMMAR = [
     {q:'tanul + ő', opts:['tanul','tanulik','tanulja'], a:0, why:'3-тя особа = гола основа.'},
     {q:'beszél + mi', opts:['beszélunk','beszélünk'], a:1, why:'Передній ряд → -ünk.'},
     {q:'tanul + ők', opts:['tanulnek','tanulnak'], a:1, why:'Задній ряд → -nak.'},
-    {q:'ért + te', opts:['értsz','értesz'], a:1, why:'Основа закінчується на -t після приголосного, тому потрібен голосний-з'єднувач: értesz. Форма «értsz» — помилка.'},
+    {q:'ért + te', opts:['értsz','értesz'], a:1, why:'Основа закінчується на -t після приголосного, тому потрібен проміжний голосний: értesz. Форма «értsz» — помилка.'},
     {q:'Ön beszél magyarul? — Яка особа дієслова?', opts:['2-га','3-тя'], a:1, why:'Ön завжди вимагає 3-ї особи.'},
   ]
 },
