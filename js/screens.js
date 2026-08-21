@@ -4,6 +4,7 @@ import { VOCAB, TOPICS, byId } from '../data/vocab.js';
 import { GRAMMAR } from '../data/grammar.js';
 import { QUESTIONS, IQ_BLOCKS, PROFILE_FIELDS, fill } from '../data/interview.js';
 import { PLAN, PHASES, weekInfo } from '../data/plan.js';
+import { DECKS } from '../data/anki.js';
 import { getState, save, currentWeek, todayLog, todayISO, resetState, haptic, tg } from './tg.js';
 import { dueCount, isLeech, humanIvl, STAGES } from './srs.js';
 
@@ -42,6 +43,11 @@ export function Home(root, go) {
   const leeches = Object.values(st.cards).filter(isLeech).length;
   const prev = w > 1 ? weekInfo(w-1) : null;
   const profileFilled = PROFILE_FIELDS.filter(f => (st.profile[f.k] || '').trim()).length;
+  const ankiCards = DECKS.flatMap(d => d.cards);
+  const ankiQueue = ankiCards.filter(c => {
+    const a = st.anki[c.id];
+    return !a || a.state === 'new' || a.due <= Date.now();
+  }).length;
 
   root.innerHTML = `
     <div class="hero">
@@ -75,12 +81,13 @@ export function Home(root, go) {
     </div>
     <div class="row-2">
       <button class="btn card-btn" id="voc"><b>Словник</b><span>${unlocked.length} слів</span></button>
-      <button class="btn card-btn" id="stats"><b>Прогрес</b><span>і помилки</span></button>
+      <button class="btn card-btn" id="anki"><b>Анкі</b><span>${ankiQueue ? ankiQueue + ' у черзі' : DECKS.length + ' колод'}</span></button>
     </div>
     <div class="row-2">
       <button class="btn card-btn" id="prof"><b>Мій профіль</b><span>${profileFilled} / ${PROFILE_FIELDS.length} полів</span></button>
       <button class="btn card-btn" id="plan"><b>План</b><span>39 тижнів</span></button>
     </div>
+    <button class="btn card-btn wide" id="stats2"><b>Прогрес</b><span>графік, проблемні слова, журнал помилок</span></button>
 
     <div class="today-line">
       Сьогодні: ${log.ok + log.bad} відповідей · ${log.ok + log.bad ? Math.round(log.ok/(log.ok+log.bad)*100) : 0}% точність · ${log.min} хв
@@ -90,7 +97,8 @@ export function Home(root, go) {
   root.querySelector('#gram').onclick  = () => go('grammar');
   root.querySelector('#iq').onclick    = () => go('interview');
   root.querySelector('#voc').onclick   = () => go('vocab');
-  root.querySelector('#stats').onclick = () => go('stats');
+  root.querySelector('#stats2').onclick = () => go('stats');
+  root.querySelector('#anki').onclick  = () => go('anki');
   root.querySelector('#prof').onclick  = () => go('profile');
   root.querySelector('#plan').onclick  = () => go('plan');
   root.querySelector('#pnudge')?.addEventListener('click', () => go('profile'));

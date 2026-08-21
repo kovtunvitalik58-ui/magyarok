@@ -87,8 +87,10 @@ export function humanIvl(ivl) {
 }
 
 // Прогноз інтервалу для підпису на кнопках оцінки
-export function previewIvl(card, grade) {
-  const c = schedule(card, grade);
-  if (c.ivl === 0) return '8 хв';
+export function previewIvl(card, grade, now = Date.now()) {
+  const c = schedule(card, grade, now);
+  // На короткому кроці ivl ще 0 — беремо реальний час до показу, а не константу,
+  // інакше підпис на кнопці розходиться з тим, що насправді зробить планувальник.
+  if (c.ivl === 0) return `${Math.max(1, Math.round((c.due - now) / 60000))} хв`;
   return humanIvl(c.ivl);
 }

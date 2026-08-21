@@ -3,6 +3,7 @@
 import { initTelegram, loadState, tg, getState, save } from './tg.js';
 import { Session } from './session.js';
 import { Home, Grammar, Drill, Interview, Vocab, Stats, Profile, PlanScreen } from './screens.js';
+import { Anki } from './anki.js';
 
 const root = document.getElementById('app');
 let current = 'home';
@@ -23,6 +24,7 @@ function go(screen, arg) {
     case 'stats':     return Stats(root, go);
     case 'profile':   return Profile(root, go);
     case 'plan':      return PlanScreen(root, go);
+    case 'anki':      return Anki(root, go, arg);
     default:          return Home(root, go);
   }
 }

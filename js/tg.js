@@ -11,6 +11,7 @@ const DEFAULT_STATE = {
   cards: {},                // id -> {due, ivl, ease, reps, lapses, stage, state}
   iq: {},                   // id питання -> {seen, ok, due}
   drills: {},               // 'gid:idx' -> {due, ivl, ease, reps}
+  anki: {},                 // id картки Anki -> {due, ivl, ease, reps, lapses, state}
   settings: { newPerDay: 12, maxReviews: 60 },
   daily: {},                // 'YYYY-MM-DD' -> {new:0, rev:0, min:0, done:false}
   streak: 0,

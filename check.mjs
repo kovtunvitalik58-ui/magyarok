@@ -97,6 +97,21 @@ QUESTIONS.forEach(q => {
 
 check(PLAN.length === 39, `у плані ${PLAN.length} тижнів замість 39`);
 
+// Колоди Anki: id карток — ключі прогресу, тому мають бути глобально унікальні
+const { DECKS, allAnkiCards } = await import('./data/anki.js');
+const aIds = allAnkiCards.map(c => c.id);
+check(new Set(aIds).size === aIds.length, 'в anki.js дублюються id карток');
+DECKS.forEach(d => {
+  check(d.id && d.title && d.cards?.length, `колода ${d.id}: порожня або без назви`);
+  d.cards.forEach(c => {
+    if (c.kind === 'rule') check(c.front && c.back, `картка ${c.id}: порожнє правило`);
+    else check(c.hu && c.tr && c.ua, `картка ${c.id}: бракує hu/tr/ua`);
+  });
+});
+// id карток Anki не мають перетинатися з id словника — інакше прогрес змішається
+const vocabIds = new Set(VOCAB.map(v => String(v.id)));
+aIds.forEach(id => check(!vocabIds.has(String(id)), `id ${id} збігається зі словником`));
+
 // Персональні дані не мають потрапляти в публічний репозиторій
 const PERSONAL = /kovtun|ковтун|1994/i;
 [['vocab', VOCAB], ['questions', QUESTIONS], ['profile', PROFILE_FIELDS]].forEach(([name, arr]) =>
